@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<!-- Insertamos el archivo CSS compilado y comprimido -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- Theme opcional -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<title>Persona</title>
+</head>
+<body>
+	<ui:composition template="/plantilla.xhtml">
+		<ui:define name="contenido">
+			<div class="content-wrapper" Style="height: 100%">
+				<section class="content-header">
+
+					<div>
+						<form action="persona.php" method="post">
+							Nombre:<input type="text" name="nombre" id="nombre"><br>
+							Fecha: <input type="date" name="fechanaci" id="fechanaci"><br>
+							Valor Ahorro: <input type="text" name="valorahorro"
+								id="valorahorro"><br>
+							<fieldset>
+								<legend>Trabaja</legend>
+								Si <input type="radio" name="trabaja" value="true" /> No <input
+									type="radio" name="trabaja" value="false" />
+							</fieldset>
+							Referencia:<input type="text" name="referencia" id="referencia"><br>
+							Descripcion:<input type="text" name="descripcion"
+								id="descripcion"><br> Identificacion:<input
+								type="text" name="identificacion" id="identificacion"><br>
+							Contraseña:<input type="text" name="contrasena" id="contrasena"><br>
+							<input type="submit" value="Guardar">
+						</form>
+					</div>
+
+				</section>
+
+				<footer class="footer">
+					<h2>FOOTER</h2>
+					<p>Aqui todo el contenido del footer</p>
+				</footer>
+			</div>
+			</section>
+			<section id="contenido" class="content"></section>
+			</div>
+
+		</ui:define>
+
+	</ui:composition>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:b="http://bootsfaces.net/ui"
+ xmlns:p="http://primefaces.org/ui"     
+ xmlns:f="http://xmlns.jcp.org/jsf/core"
+ xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <meta name="viewport" content="width=device-width, initial-scale=2"></meta>
+    <title>Facelet</title>     
+</h:head>
+<body>
+   <ui:composition template="/plantilla.xhtml">    
+            <ui:define name="contenido">
+                <div class="content-wrapper" Style="height: 100%">
+                    <section class="content-header">
+	<h1>Editar Persona</h1>
+	<b:form>
+                <b:panel columns="2">
+                    <h:outputLabel value="ID Persona" for="idPersona" />
+                    <h:inputText id="idPersona" value="#{per.persona.idPersona}" title="IdPersona" required="true"/>
+                    <h:outputLabel value="Nombres" for="nombres" />
+                    <h:inputText id="nombres" value="#{per.persona.nombres}" title="Nombres" />
+                    <h:outputLabel value="fechaNaci" for="fechaNaci" />
+                    <h:inputText id="fechaNaci" value="#{per.persona.fechaNaci}" title="fechaNaci" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="valorAhorro" for="valorAhorro" />
+                    <h:inputText id="valorAhorro" value="#{per.persona.valorAhorro}" title="valorAhorro" />
+                    <h:outputLabel value="trabaja" for="trabaja" />
+                    <h:inputText id="trabaja" value="#{per.persona.trabaja}" title="trabaja" />
+                    <h:outputLabel value="referencia" for="referencia" />
+                    <h:inputText id="referencia" value="#{per.persona.referencia}" title="referencia" />
+                    <h:outputLabel value="descripcion" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{per.persona.descripcion}" title="descripcion" />
+                    <h:outputLabel value="#identificacion" for="identificacion" />
+                    <h:inputText id="identificacion" value="#{per.persona.identificacion}" title="identificacion" />
+                    <h:outputLabel value="contrasena" for="contrasena" />
+                    <h:inputText id="contrasena" value="#{per.persona.contrasena}" title="contrasena" />
+                </b:panel>
+                <b:commandButton action="#{per.crear}" value="Guardar" ajax="true"  look="primary" />
+               
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPersonaViewLink}"/>
+                <br />
+                <h:commandLink action="#{personaController.prepareList}" value="#{bundle.EditPersonaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPersonaIndexLink}" />
+	</b:form>
+	                  </section>
+                    <section id="contenido" class="content" >
+                    </section>
+                </div>
+
+            </ui:define>
+
+        </ui:composition>
+</body>
+</html>

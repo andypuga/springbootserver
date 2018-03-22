@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta name="viewport" content="width=device-width, initial-scale=2"></meta>
+	 
+	<title>Facelet</title>
+</h:head>
+<body>
+   <ui:composition template="/plantilla.xhtml">    
+            <ui:define name="contenido">
+                <div class="content-wrapper" Style="height: 100%">
+                    <section class="content-header">
+			<h1>Lista de Personas</h1>
+			<h:form>
+
+
+				<b:panel>
+					<b:dataTable value="#{per.personas}" var="item" border="0"
+						cellpadding="2" cellspacing="0"
+						rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all"
+						style="border:solid 1px">
+						<b:dataTableColumn>
+							<f:facet name="header">
+								<h:outputText value="#{personas.idPersona}" />
+							</f:facet>
+							<h:outputText value="#{item.idPersona}" />
+						</b:dataTableColumn>
+						<b:dataTableColumn>
+							<f:facet name="header">
+								<h:outputText value="nombres" />
+							</f:facet>
+							<h:commandLink value="#{item.nombres}"
+								action="#{per.editar(item.idPersona)}">
+							</h:commandLink>
+
+						</b:dataTableColumn>
+						<b:dataTableColumn>
+							<f:facet name="header">
+								<h:outputText value="#{bundle.ListPersonaTitle_fechaNaci}" />
+							</f:facet>
+							<h:outputText value="#{item.fechaNaci}">
+								<f:convertDateTime pattern="MM/dd/yyyy" />
+							</h:outputText>
+						</b:dataTableColumn>
+						<b:dataTableColumn>
+							<f:facet name="header">
+								<h:outputText value="#{bundle.ListPersonaTitle_valorAhorro}" />
+							</f:facet>
+							<h:outputText value="#{item.valorAhorro}" />
+						</b:dataTableColumn>
+						<b:dataTableColumn>
+							<f:facet name="header">
+								<h:outputText value="#{bundle.ListPersonaTitle_trabaja}" />
+							</f:facet>
+							<h:outputText value="#{item.trabaja}" />
+						</b:dataTableColumn>
+						<b:dataTableColumn>
+							<f:facet name="header">
+								<h:outputText value="#{bundle.ListPersonaTitle_referencia}" />
+							</f:facet>
+							<h:outputText value="#{item.referencia}" />
+						</b:dataTableColumn>
+						<b:dataTableColumn>
+							<f:facet name="header">
+								<h:outputText value="#{bundle.ListPersonaTitle_descripcion}" />
+							</f:facet>
+							<h:outputText value="#{item.descripcion}" />
+						</b:dataTableColumn>
+						<b:dataTableColumn>
+							<f:facet name="header">
+								<h:outputText value="#{bundle.ListPersonaTitle_identificacion}" />
+							</f:facet>
+							<h:outputText value="#{item.identificacion}" />
+						</b:dataTableColumn>
+						<b:dataTableColumn>
+							<f:facet name="header">
+								<h:outputText value="#{bundle.ListPersonaTitle_contrasena}" />
+							</f:facet>
+							<h:outputText value="#{item.contrasena}" />
+						</b:dataTableColumn>
+						<b:dataTableColumn>
+							<f:facet name="header">
+								<h:outputText value="Options" />
+							</f:facet>
+
+							<h:commandLink action="#{per.eliminar(item.idPersona)}" value="X" />
+						</b:dataTableColumn>
+					</b:dataTable>
+
+					<b:commandButton value="Nuevo" ajax="true" action="#{per.nuevo()}"
+						look="primary" />
+				</b:panel>
+			</h:form>
+                  </section>
+                    <section id="contenido" class="content" >
+                    </section>
+                </div>
+
+            </ui:define>
+
+        </ui:composition>
+
+</body>
+</html>
